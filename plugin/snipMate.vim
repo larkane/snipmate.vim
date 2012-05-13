@@ -125,9 +125,7 @@ fun! GetSnippets(dir, filetypes)
 	for ft in split(a:filetypes, '\.')
 		if has_key(g:did_ft, ft) | continue | endif
 		call s:DefineSnips(a:dir, ft, ft)
-		if ft == 'objc' || ft == 'cpp' || ft == 'cs'
-			call s:DefineSnips(a:dir, 'c', ft)
-		elseif ft == 'xhtml'
+		if ft == 'xhtml'
 			call s:DefineSnips(a:dir, 'html', 'xhtml')
 		endif
 		let g:did_ft[ft] = 1
