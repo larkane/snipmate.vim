@@ -139,3 +139,35 @@ snippet cal
 	\mathcal{${1}}
 snippet frak
 	\mathfrak{${1}}
+# Beamer
+snippet frame
+	% Frame: $1 %<
+	\begin{frame}
+	\frametitle{${1:frame title}}
+	${2:% Content here %}
+	\end{frame}%>
+snippet block
+	\begin{block}${1:<+->}{${2:Header}}
+		${3}
+	\end{block}
+snippet ablock
+	\begin{alertblock}${1:<+->}{${2:Header}}
+		${3}
+	\end{alertblock}
+snippet uncover
+	\uncover<${1:+-}>{${2}}
+snippet only
+	\only<${1:+-}>{${2}}
+snippet visible
+	\visible<${1:+-}>{${2}}
+snippet invis
+	\invis<${1:+-}>{${2}}
+snippet alt
+	\alt<${1:+-}>{${2:default}}{${3:alt}}
+snippet temp
+	\temporal<${1:+-}>{${2:before}}{${3:default}}{${4:after}}
+snippet note
+	\note%<
+	{
+		${1}
+	}%>
