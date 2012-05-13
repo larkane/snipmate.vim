@@ -1,3 +1,119 @@
+# main()
+snippet main
+	int main(int argc, const char * argv[])
+	{
+		${1}
+		return 0;
+	}
+# #include <...>
+snippet inc
+	#include <${1:iostream}>${2}
+# #include "..."
+snippet Inc
+	#include "${1:`Filename("$1.hpp")`}"${2}
+# #ifndef ... #define ... #endif
+snippet Def
+	#ifndef $1
+	#define ${1:SYMBOL} ${2:value}
+	#endif${3}
+snippet def
+	#define 
+snippet ifdef
+	#ifdef ${1:FOO}
+		${2:#define }
+	#endif
+snippet #if
+	#if ${1:FOO}
+		${2}
+	#endif
+# Header Include-Guard
+snippet once
+	#ifndef ${1:_`toupper(substitute(expand("%:t"), '\M.', '_', 'g'))`_`toupper(substitute(system("uuidgen"), '-', '_', 'g'))`_}
+	#define $1
+
+	${2}
+
+	#endif
+# If Condition
+snippet if
+	if (${1:/* condition */})
+	{
+		${2:/* code */}
+	}
+snippet el
+	else
+	{
+		${1}
+	}
+# Tertiary conditional
+snippet t
+	${1:/* condition */} ? ${2:a} : ${3:b}
+# Do While Loop
+snippet do
+	do
+	{
+		${2:/* code */}
+	}
+	while (${1:/* condition */});
+# While Loop
+snippet wh
+	while (${1:/* condition */})
+	{
+		${2:/* code */}
+	}
+# For Loop
+snippet for
+	for (int ${1:i} = 0; $1 < ${2:count}; $1++)
+	{
+		${3:/* code */}
+	}
+snippet forv
+	size_t $3 = ${1:vect}.size();
+	for (size_t ${2:i} = 0; $2 < ${3:size}; $2++)
+	{
+		${4:/* code */}
+	}
+snippet fori
+	for (${1:vector}::${2:iterator} ${3:it} = ${4:vect}.begin(),
+		  ${5:end} = $4.end(); $3 != $5; ++$3)
+	{
+		${6:/* code */}
+	}
+# Custom For Loop
+snippet forc
+	for (${1:int} ${2:i} = ${3:0}; ${4:$2 < 10}; $2${5:++})
+	{
+		${6:/* code */}
+	}
+# Getters and setters
+snippet getc By const reference getter
+	const ${1:type} & get${2:Property}() const;${3}
+snippet getr By reference getter
+	${1:type} & get${2:Property}();${3}
+snippet getv By value getter
+	${1:size_t} get${2:Size}() const;${3}
+snippet setv By value setter
+	void set${1:Size}(${2:size_t} ${3:size});${4}
+snippet setc By const reference setter
+	void set${1:Property}(const ${2:type} & ${3:value});${4}
+# Function
+snippet fun
+	${1:void} ${2:function_name}(${3})
+	{
+		${4:/* code */}
+	}
+# Function Declaration
+snippet fund
+	${1:void} ${2:function_name}(${3});${4}
+# Typedef
+snippet td
+	typedef ${1:int} ${2:MyCustomType};${3}
+# Struct
+snippet st
+	struct ${1:`Filename('$1_t', 'name')`}
+	{
+		${2:/* data */}
+	}${3: /* optional variable list */};${4}
 # Read File Into Vector
 snippet readfile
 	std::vector<char> v;
@@ -29,7 +145,20 @@ snippet cl
 	private:
 		${3:/* data */}
 	};
-snippet fori
-	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
-		${4:/* code */}
-	}
+# Template
+snippet tp
+	template<${2:typename} ${1:T}>${3}
+# Shortcuts
+snippet tn
+	typename 
+snippet un
+	unsigned 
+# Casts
+snippet sc
+	static_cast<${1:int}>(${2:value})${3}
+snippet dc
+	dynamic_cast<${1:type} *>(${2:value})${3}
+snippet rc
+	reinterpret_cast<${1:int} *>(${2:value})${3}
+snippet cc
+	const_cast<${1:int}>(${2:value})${3}
