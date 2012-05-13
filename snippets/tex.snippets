@@ -171,3 +171,23 @@ snippet note
 	{
 		${1}
 	}%>
+# TikZ
+snippet tp
+	\begin{tikzpicture}%<
+	${1}
+	\end{tikzpicture}%>
+snippet to
+	% [...] %<
+	[
+		${1}
+	]%>
+snippet ts
+	${1:style name}/.style = %<
+	{
+		${2}
+	},%>
+#
+snippet tnode
+	\node (${1}) at (${2}) {${3}};
+snippet tc
+	\coordinate (${1:name}) at (${2:0,0});${3}
