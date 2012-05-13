@@ -117,3 +117,25 @@ snippet secref
 	${1:Section}~\ref{sec-${2}}${3}
 snippet pageref
 	${1:page}~\pageref{${2}}${3}
+#
+snippet def
+	\newcommand{\${1:command}}${2:[1]}{${3}}
+snippet env
+	\newenvironment{${1:env}}${2:[1]}{${3}}{}
+#
+snippet em
+	\emph{${1:text}}${2}
+snippet tt
+	\texttt{${1:text}}${2}
+snippet bf
+	\textbf{${1:text}}${2}
+snippet it
+	\textit{${1:text}}${2}
+snippet sc
+	\textsc{${1:text}}${2}
+snippet bb
+	\mathbb{${1}}
+snippet cal
+	\mathcal{${1}}
+snippet frak
+	\mathfrak{${1}}
